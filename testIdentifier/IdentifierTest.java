@@ -24,7 +24,7 @@ public class IdentifierTest {
     }
 
     @Test
-    void onlySpecialCharacters() {
+    void hasOnlySpecialCharacters() {
         assertFalse(id.validadeIdentifier("@"));
     }
 

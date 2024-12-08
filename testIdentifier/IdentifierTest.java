@@ -14,57 +14,28 @@ public class IdentifierTest {
     }
 
     @Test
-    void hasOnlyNumbers() {
-        assertFalse(id.validadeIdentifier("3"));
+    void containsOnlyLettersOrDigitsAndIsAtLeastOneCharLongAndStartsWithALetter() {
+        assertTrue(id.validadeIdentifier("a"));
     }
 
     @Test
-    void exceedsMaximumCharacters() {
-        assertFalse(id.validadeIdentifier("abc123g"));
+    void startsWithLetterAndHasDigitsAndIsLessThanSevenCharsLong() {
+        assertTrue(id.validadeIdentifier("a12345"));
     }
 
     @Test
-    void hasOnlySpecialCharacters() {
-        assertFalse(id.validadeIdentifier("@"));
+    void isMoreThanSixCharsLong() {
+        assertFalse(id.validadeIdentifier("a123456"));
     }
 
     @Test
-    void startsWithANumberButHasLetters() {
-        assertFalse(id.validadeIdentifier("35a7x"));
+    void startsWithANumber() {
+        assertFalse(id.validadeIdentifier("2"));
     }
 
     @Test
-    void hasSpecialCharacters() {
-        assertFalse(id.validadeIdentifier("ua00!"));
+    void containsSymbols() {
+        assertFalse(id.validadeIdentifier("A#$12"));
     }
 
-    @Test
-    void hasOnlyOneLetter() {
-        assertTrue((id.validadeIdentifier("b")));
-    }
-
-    @Test
-    void startsWithALetterButHasNumbersAndLetters() {
-        assertTrue(id.validadeIdentifier("ac645j"));
-    }
-
-    @Test
-    void hasOnlyLetters() {
-        assertTrue(id.validadeIdentifier("ogsach"));
-    }
-
-    @Test
-    void startsWithALetterAndTheRestAreNumbers() {
-        assertTrue(id.validadeIdentifier("z00223"));
-    }
-
-    @Test
-    void startsWithALetterAndHasLessThanSixValidCharacters() {
-        assertTrue(id.validadeIdentifier("k03"));
-    }
-
-    @Test
-    void hasOnlyLettersAndIsLessThanSixValidCharacters() {
-        assertTrue(id.validadeIdentifier("cd"));
-    }
 }
